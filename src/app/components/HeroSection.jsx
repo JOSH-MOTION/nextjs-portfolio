@@ -7,22 +7,23 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
+    <section className="py-10 lg:py-16">
+      <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 lg:gap-12 items-center">
+        {/* Left Content */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+          className="col-span-8 text-center sm:text-left"
         >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
+          <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+            <span className="text-orange-500 bg-clip-text bg-gradient-to-r from-orange-500 to-black">
               Hello, I&apos;m{" "}
             </span>
-            <br></br>
+            <br />
             <TypeAnimation
               sequence={[
-                "Judy",
+                "Joshua Doe",
                 1000,
                 "Web Developer",
                 1000,
@@ -36,43 +37,53 @@ const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            voluptuous.
+          <p className="text-[#ADB7BE] text-base sm:text-lg mt-4 lg:text-xl">
+            Passionate about crafting high-performance web and mobile apps with a focus on sleek design and smooth user experiences.
           </p>
-          <div>
+
+          {/* Buttons */}
+          <div className="mt-6 flex flex-col sm:flex-row items-center sm:items-start gap-4">
             <Link
               href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
+              className="px-6 py-3 w-full sm:w-fit rounded-full bg-gradient-to-br from-orange-500 to-black text-white hover:opacity-80 transition"
             >
               Hire Me
             </Link>
-            <Link
-              href="/"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
-            >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+            <Link href="/" className="relative">
+              <span className="block bg-orange-500 hover:bg-gray-900 rounded-full px-6 py-3 text-white border border-orange-500 transition">
                 Download CV
               </span>
             </Link>
           </div>
         </motion.div>
+
+        {/* Right Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-4 lg:mt-0"
+          className="col-span-4 flex justify-center"
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+          <div className="relative rounded-full bg-[#181818] w-[300px] h-[300px] lg:w-[350px] lg:h-[350px] flex items-center justify-center">
             <Image
-              src="/images/hero-image.png"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
+              src="/images/hero1-image.png"
+              alt="Hero image"
+              className="object-cover rounded-full"
+              width={250}
+              height={250}
             />
           </div>
         </motion.div>
+      </div>
+
+      {/* About Me Section */}
+      <div className="mt-16 text-center max-w-3xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white">
+          About Me
+        </h2>
+        <p className="text-yellow-600 text-lg mt-4">
+          I am Joshua Doe, a creative and detail-oriented developer specializing in web, mobile, and UI/UX design. With a passion for building intuitive digital products, I thrive on creating seamless user experiences that balance aesthetics and functionality. Let's build something amazing together!
+        </p>
       </div>
     </section>
   );
